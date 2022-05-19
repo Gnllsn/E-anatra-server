@@ -4,7 +4,7 @@ const Users = require('../model/users.model');
 
 const router = new express.Router();
 
-router.get('/users', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const user = await Users.find();
         res.json(user);
@@ -13,7 +13,7 @@ router.get('/users', async (req, res) => {
     }
 })
 
-router.post('/users/add', async (req, res) => {
+router.post('/add', async (req, res) => {
     const users = new Users({
         user: req.body.name,
     });
@@ -27,5 +27,73 @@ router.post('/users/add', async (req, res) => {
         res.status(400).json({ message: err.message })
     }
 })
+
+
+
+async function sign(request,response){
+    const user = new Users({
+        name : request.body.name,
+        firstname : request.body.firstname,
+        age : request.body.age,
+        pwd : request.body.password,
+        email : request.body.email
+    })
+    const emailExist = await User.findOne({email:request.body.email}) 
+    if(emailExist){
+        return response.status(200).send({
+            status : 400 ,
+            message : "Email déjà existant"
+        });
+    }
+    const salt = await bcrypt.genSalt(10); 
+    request.body.pwd = await bcrypt.hash(request.body.pwd,salt) ;
+    try{
+        let saved_user = await new Users(request.body).save();
+        const token =  JWT.sign({_id : saved_user._id},process.env.TOKEN_SECRET)
+        delete saved_user.pwd;
+        response.send({
+            status : 200 ,
+            data : {
+                user : saved_user,
+                token : token
+            }
+        })
+    }catch(err){
+        response.send(200).send({
+            status : 400,
+            message : err
+        })
+    } 
+}
+
+async function login(request,response){
+    const userExist = await User.findOne({email:request.body.email}) 
+    if(!userExist){
+        return response.status(200).send({
+            status : 400 ,
+            message : "Email Introuvable"
+        });
+    }
+    const validPassword = await bcrypt.compare(request.body.pwd,userExist.pwd)
+    if(!validPassword) {
+        return response.status(200).send({
+            status : 400,
+            message : 'Mot de passe incorrect'
+        });
+    }
+
+    const token =  JWT.sign({_id : userExist._id},process.env.TOKEN_SECRET)
+    delete userExist.pwd;
+    response.send({
+        status : 200 ,
+        data : {
+            user : userExist,
+            token : token
+        }
+    })
+}
+
+router.post('/sign',sign)
+router.post('/login',login)
 
 module.exports = router;
