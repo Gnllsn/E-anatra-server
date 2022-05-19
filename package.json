@@ -1,17 +1,17 @@
 {
   "name": "e-anatra-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "web service for an educative application",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Gnllsn/E-anatra-server.git"
   },
-  "author": "",
+  "author": "Sandratrahasina",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Gnllsn/E-anatra-server/issues"
@@ -21,7 +21,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.3"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.16"
   }
 }
