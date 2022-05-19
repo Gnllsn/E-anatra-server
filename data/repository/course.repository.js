@@ -4,7 +4,7 @@ const Course = require('../model/course.model');
 
 const router = new express.Router();
 
-router.get('/course', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const course = await Course.find();
         res.json(course);
@@ -13,7 +13,7 @@ router.get('/course', async (req, res) => {
     }
 })
 
-router.post('/course/add', async (req, res) => {
+router.post('/add', async (req, res) => {
     const course = new Course({
         title : req.body.title,
         urlVideo : req.body.urlVideo,
