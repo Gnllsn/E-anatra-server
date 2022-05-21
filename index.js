@@ -16,6 +16,10 @@ app.use('/category',category);
 app.use('/course',course);
 app.use('/users',users);
 
+app.get('/',(request,response)=>{
+	response.send("Hello server !!!") ;
+})
+
 const mongoose = require('./data/db');
 
 mongoose(app) ;
