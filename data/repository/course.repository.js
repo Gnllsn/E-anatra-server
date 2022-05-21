@@ -1,10 +1,11 @@
 const express = require('express');
 
 const Course = require('../model/course.model');
+const ObjectId =  require('mongoose').Types.ObjectId;
 
-const router = new express.Router();
+const routerCourse = new express.Router();
 
-router.get('/', async (req, res) => {
+routerCourse.get('/', async (req, res) => {
     try {
         const course = await Course.find();
         res.json(course);
@@ -13,15 +14,13 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.post('/add', async (req, res) => {
+routerCourse.post('/add', async (req, res) => {
     const course = new Course({
         title : req.body.title,
         urlVideo : req.body.urlVideo,
         shortDescription : req.body.shortDescription,
         content : req.body.content
     });
-
-    console.log(course);
 
     try {
         const newCourse = await course.save();
@@ -31,4 +30,18 @@ router.post('/add', async (req, res) => {
     }
 })
 
-module.exports = router;
+async function getCoureseById(request,response){
+    var result = {} ;
+    try{
+        result.data = await new Course().find({_id:ObjectId(request.params.id)})
+        result.status = 200 ; 
+    }catch(err){
+        result.status = 400 ; 
+        result.message = err.message ; 
+    }
+    return response.send(200).send(result)
+}
+
+routerCourse.get('/:id',getCoureseById)
+
+module.exports = routerCourse;
