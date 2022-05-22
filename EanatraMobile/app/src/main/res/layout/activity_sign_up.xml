@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.SignUpActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/lineraaa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/framegeneral"
+                android:layout_width="match_parent"
+                android:layout_height="734dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/FrameFormaulaire"
+                    android:layout_width="362dp"
+                    android:layout_height="708dp"
+                    android:layout_gravity="center"
+                    android:background="#EDEDED"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/eanatra"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp"
+                            android:gravity="center"
+                            android:text="Bienvenue sur E-anatra"
+                            android:textColor="@color/black"
+                            android:textSize="25dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/formulaire"
+                        android:layout_width="match_parent"
+                        android:layout_height="487dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="261dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/required"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginBottom="15dp"
+                                android:text="All field required "
+                                android:textColor="#ff0000" />
+
+                            <TextView
+                                android:id="@+id/nom_label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Nom" />
+
+                            <EditText
+                                android:id="@+id/name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="20"
+                                android:text="t"
+                                android:inputType="text" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="261dp"
+                            android:layout_height="97dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/prenom_label"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_marginTop="20dp"
+                                android:text="Prenom" />
+
+                            <EditText
+                                android:id="@+id/firstname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="20"
+                                android:text="e"
+                                android:inputType="text" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="261dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/age_label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="Age" />
+
+                            <EditText
+                                android:id="@+id/age"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="20"
+                                android:text="2"
+                                android:inputType="number" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="261dp"
+                            android:layout_height="95dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textViewemail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="Email" />
+
+                            <EditText
+                                android:id="@+id/email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="20"
+                                android:inputType="textEmailAddress" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="264dp"
+                            android:layout_height="85dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textViewpassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Mot de passe" />
+
+                            <EditText
+                                android:id="@+id/password"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:ems="20"
+                                android:text="r"
+                                android:inputType="textPassword" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearboutton"
+                        android:layout_width="192dp"
+                        android:layout_height="132dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btnsignin"
+                            android:layout_width="164dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="S'inscrire"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/btnlogin"
+                            android:layout_width="167dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Se Connecter"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/loadingSignUp"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/errormessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:gravity="center"
+                        android:textColor="#ff0000"
+                        android:visibility="gone"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
