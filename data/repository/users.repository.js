@@ -1,4 +1,6 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
+const JWT = require('jsonwebtoken');
 
 const Users = require('../model/users.model');
 
@@ -38,7 +40,7 @@ async function sign(request,response){
         pwd : request.body.password,
         email : request.body.email
     })
-    const emailExist = await User.findOne({email:request.body.email}) 
+    const emailExist = await Users.findOne({email:request.body.email}) 
     if(emailExist){
         return response.status(200).send({
             status : 400 ,
@@ -67,7 +69,7 @@ async function sign(request,response){
 }
 
 async function login(request,response){
-    const userExist = await User.findOne({email:request.body.email}) 
+    const userExist = await Users.findOne({email:request.body.email}) 
     if(!userExist){
         return response.status(200).send({
             status : 400 ,
@@ -93,7 +95,16 @@ async function login(request,response){
     })
 }
 
+async function test(request,response){
+    return response.send({
+        status : 200 ,
+        message : "cool"
+    })
+
+}
+
 router.post('/sign',sign)
 router.post('/login',login)
+router.get('/test',test)
 
 module.exports = router;
