@@ -1,17 +1,17 @@
 package com.example.eanatramobile.view;
 
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.util.Log;
-
 import com.example.eanatramobile.R;
-import com.google.gson.Gson;
+import com.example.eanatramobile.modele.Cours;
 
-import java.util.HashMap;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -20,10 +20,18 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-//        SharedPreferences memory = getApplicationContext().getSharedPreferences("data_user", Context.MODE_PRIVATE);
-//        Gson gson = new Gson() ;
-//        HashMap<String,Object> data_store = gson.fromJson(memory.getString("user",""),HashMap.class);
-//        Log.d("MESSAGE "," \n\n\n\n "+data_store.get("user")+"");
+//        ListView listView = findViewById(R.id.listView);
+//        List<Object> objectList = new ArrayList<>();
+//        for(int i=0 ; i< 10  ; i++){
+//            objectList.add("coucou de "+i);
+//        }
+//
+//        ArrayAdapter<Object> arrayAdapter = new ArrayAdapter<Object>(this,R.layout.cours,objectList);
+//        listView.setAdapter(arrayAdapter);
+     }
 
-    }
+     private void creerList(){
+         ArrayList<Cours> cours = new ArrayList<>();
+//         for ()
+     }
 }

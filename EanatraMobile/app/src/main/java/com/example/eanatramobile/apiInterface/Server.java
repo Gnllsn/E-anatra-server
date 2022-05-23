@@ -17,8 +17,7 @@ public final class Server { // final : pas d'heritage
     public static final Retrofit getServert(){
         if(server==null){
             server = new Retrofit.Builder()
-                    .baseUrl(ip_url)
-//                    .baseUrl("https://jsonplaceholder.typicode.com/")
+                    .baseUrl(server_url)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build() ;
         }

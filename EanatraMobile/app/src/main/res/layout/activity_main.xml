@@ -71,6 +71,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ems="20"
+                                android:text="gino@gmail.com"
                                 android:inputType="textEmailAddress" />
                         </LinearLayout>
 
@@ -92,6 +93,7 @@
                                 android:layout_height="wrap_content"
                                 android:clickable="false"
                                 android:ems="20"
+                                android:text="test"
                                 android:inputType="textPassword" />
                         </LinearLayout>
                     </LinearLayout>
